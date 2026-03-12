@@ -33,7 +33,7 @@ jobs:
     - name: Build (CUDA)
       run: cargo build --release --features cuda --verbose
     - name: Run tests
-      run: cargo test --verbose
+      run: cargo test --features cuda --verbose
 
   build-macos:
     runs-on: macos-latest
@@ -45,6 +45,4 @@ jobs:
     - name: Build (Metal)
       run: cargo build --release --features metal --verbose
     - name: Run tests
-      run: cargo test --verbose
-    - name: Verify Metal GPU keygen
-      run: ./target/release/mc-keygen --verify A
+      run: cargo test --features metal --verbose
